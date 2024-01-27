@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main/style_main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        background-image: url("{% get_media_prefix %}products/bg.jpg");
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        background-position: center center; 
+        color: #ffffff;
+        padding: 20px; 
+        height: 100vh; 
+    
+    }
+</style>    
+
+<body>
+    <header>
+        <a class="logo" href="/">Lt.com</a>
+        <div>
+            <a href="#">Iphone</a>
+            <a href="#">Mac</a>
+            <a href="#">IPad</a>
+            <a href="#">Air Pods</a>
+            <a href="#">Apple Watch</a>
+        </div>
+    </header>
+<main>
+   
+    
+    <form action="" method="POST">
+    {% csrf_token %}
+        <div class="main-container">
+            <h1>Аuthorization</h1>
+            <div class="info_product">
+                <div class="name_order">
+                
+                    <a href="/register"> Log in </a>
+                    <a href="/auth"> Sign in </a>
+                    
+                </div>
+                
+            </div>
+            {{error}}
+            
+            
+            
+            <div class="inputs">
+                <input type="text" name="username" placeholder="Enter username">
+                <input type="password" name="password" placeholder="Enter password">
+            </div>
+
+            <div class="button">
+                <button  class="btn" >Sign in</button>
+            </div>
+            
+            
+            
+        
+        </div>
+    
+    </form>
+    
+</main>
+</body>
+</html>

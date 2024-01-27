@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'order/style_create_order.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+    
+        
+    
+    
+   
+
+<body>
+    
+    <header>
+        <h1>Lt.com</h1>
+        <div class="nav container">
+            <a href="#">Iphone</a>
+            <a href="#">Mac</a>
+            <a href="#">IPad</a>
+            <a href="#">Air Pods</a>
+            <a href="#">Apple Watch</a>
+            <i class="bx bx-shopping-bag" id="cart-icon"></i>
+        </div>      
+    </header>
+
+    <main>
+        <div class="product-card">
+            <img src="product1.jpg" alt="Товар 1">
+            <h2>Товар 1</h2>
+            <p>Описание товара 1</p>
+            <button class="buy-button">Купить</button>
+        </div>
+    
+        <div class="product-card">
+            <img src="product2.jpg" alt="Товар 2">
+            <h2>Товар 2</h2>
+            <p>Описание товара 2</p>
+            <button class="buy-button">Купить</button>
+        </div>
+        
+        
+            
+            
+        
+
+        <script src="{% static 'order/total_order.js' %}"></script>
+
+    </main>
+
+    
+    
+            
+            
+            
+       
+    
+</body>
+</html>

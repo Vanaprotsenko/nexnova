@@ -1,0 +1,138 @@
+*{
+    font-family: 'Cinzel', serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-decoration: none;
+    padding:0;
+    margin:0;
+}
+header {
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: row;
+    gap:40px;
+    font-size: 24px;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #cbe3ec77;
+    justify-content: space-between;
+    
+}
+header h1 {
+    font-size: 28px;
+}
+header div{
+    display: flex;
+    gap: 50px;
+}
+header div a{
+    border-bottom:  4px solid transparent;
+    color:black;
+}
+header div a:hover{
+        border-bottom:  4px solid #4e64ac77;
+        box-sizing: content-box;
+}
+.mes{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+h1.message {
+    font-size: 32px;
+    
+    width: 510px;
+    padding: 10px 10px;
+    border-radius: 0px 0px 10px 0;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+   
+}
+h2.title {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    box-shadow: 0 2px 5px hsl(0 4% 15% / 10%);
+}
+.all-order{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(195, 195, 195);
+    padding: 10px 10px;
+    gap:10px;
+}  
+
+.navi{
+    display: flex;
+    flex-direction: row;
+    gap:25px;
+}
+
+.logsign{
+    width: auto;
+    height: auto;
+    background-color: aquamarine;
+    padding: 5px 5px;
+}
+.logo{
+    font-size: 28px;
+    font-weight: 600;
+    color:#000;
+}  
+.shop-content{
+    display: flex;
+    flex-direction: row;
+    gap: 370px;
+    padding: 70px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.con-order{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    gap: 10px;
+
+}
+.info_order{
+    
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    gap: 45px;
+}
+.info-box p {
+    width: 100%;
+    font-size: 20px;
+}
+
+p.data-order {
+    width: 230%;
+    font-size: 20px;
+    border-bottom: 2.2px solid #b0b2b977;
+    box-sizing: content-box;
+}
+.con-order input{
+    height: 30px;
+    display: flex;
+    width: 267px;
+}
+.info-box{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.btn-end{
+    width: 200px;
+    height: 50px;
+}
+.end-order{
+    display: flex;
+    flex-direction: row;
+    gap: 430px;
+    align-items: baseline;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'product/style_product.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+    
+        
+    
+<body>
+    <header>
+        <a  class="logo" href="/">Lt.com</a>
+        <div class="nav container">
+            
+            <a href="#">Iphone</a>
+            <a href="#">Mac</a>
+            <a href="#">IPad</a>
+            <a href="#">Air Pods</a>
+            <a href="#">Apple Watch</a> 
+            <div class="cart-icon">
+                <a  href="/cart" class='bx bx-cart-add bucket'></a>
+                <span class="item-count">{{count}}</span> 
+            </div>
+            <div class="navi">
+                <a  class="logsign" href="/register">Log in</a>
+                <a  class="logsign" href="/auth">Sign in</a>
+            </div>
+        </div>
+    </header>
+
+    
+    <main>
+        
+        <form action="/add_to_bucket/{{product.id}}/" method="POST">
+            {% csrf_token %}                  
+            <div class="shop-content">               
+               <div class="product-box">                                            
+                    <li><img src="{{ product.image.url }}" alt="{{ product.name }}"  class="product-img"></li>
+                    <!-- <h2 class="product-title">{{ product.name }}</h2>
+                    <span class="price">${{ product.price }}</span> -->
+                                            
+                </div>
+                <div>                   
+                    <div class="info-box">
+                        
+                        <h1 class="title" name="name">{{product.name}}</h1>
+                        <span class="price-product" name="price">${{product.price}}</span>
+                        <p class="info-product">{{product.description}}</p>
+                        <span class="diagonal"> Phone diagonal is {{product.diagonal}} px</span>
+                        <span class="diagonal"> Phone ram is {{product.ram}}</span>
+                        <button name="btn-addcart" class="btn-add-cart" >Add to Cart</button>
+                    
+                    </div>
+                </div>
+                    
+                
+                 
+                
+            </div>    
+            
+        </form>
+        
+        
+            
+                
+                    
+                                                  
+                               
+                     
+            
+        
+
+    </main>
+
+    
+   
+            
+       
+    
+   
+        
+    
+    
+</body>
+</html>

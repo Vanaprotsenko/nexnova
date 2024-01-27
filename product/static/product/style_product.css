@@ -1,0 +1,160 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-decoration: none;
+}
+.logo{
+    font-size: 28px;
+    font-weight: 600;
+    color:#000;
+}
+header {
+    
+    
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    font-size: 24px;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #cbe3ec77;
+    justify-content: space-between; 
+}
+header h1 {
+    font-size: 28px;
+}
+header div{
+    display: flex;
+    gap: 50px;
+}
+header div a{
+    border-bottom:  4px solid transparent;
+    color:black;
+}
+header div a:hover{
+    border-bottom:  4px solid #4e64ac77;
+    box-sizing: content-box;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+   
+}
+body{
+    color:var(--text-color);
+}
+.shop-content {
+    display: flex;
+    padding: 15px 150px;
+    flex-direction: row;   
+}
+.product-box{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-box li {
+    width: 400px; /* Ширина контейнера */
+    height: 400px; /* Высота контейнера */
+    margin: 10px;
+    overflow: hidden;
+}
+.product-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.btn-add-cart{
+    color: #fff;
+    font-size: 16px;
+    background: #215bb1;  
+    width: 100%;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: left;
+    font-weight: 500;
+    min-width: 162px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+.info-box{
+    padding: 15px 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 60%;
+}
+.info-box h1{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+}
+.price-product{
+    font-size: 26px;
+    font-weight: 400;
+}
+
+
+
+/* .product-img{
+    width: 400px;
+    height: 600px;
+    margin-bottom: 0.5rem;
+} */
+.product-title{
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+.price{
+    font-weight: 500;
+}
+.diagonal{
+    font-size: 18px;
+    font-weight: 300;
+}
+.cart-icon {
+    position: relative;
+    display: inline-block;
+}
+  
+.item-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: rgb(123, 123, 123);
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+.bucket{
+    cursor: pointer;
+    font-size: 35px;
+}
+.navi{
+    display: flex;
+    flex-direction: row;
+    gap:25px;
+}
+
+.logsign{
+    width: auto;
+    height: auto;
+    background-color: aquamarine;
+    padding: 5px 5px;
+}
+
+
+
+

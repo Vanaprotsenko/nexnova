@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'product/style_catalog.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+        
+</head>
+<style>
+    .shop-contetn{
+        display: flex;
+        flex-direction: row;
+        gap:40px;
+    }
+    /* main{
+        display: flex;
+        gap:50px;
+        flex-direction: row;
+        padding: 50px 50px;
+    } */
+    .product-img {
+    width: 85%;
+    height: 150px;
+    object-fit: contain;
+    }
+    .product-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fcfcfc;
+    width: 200px; 
+    height: 225px;
+    text-align: center;
+    
+}
+.product-box:hover .buy-button {
+transform: translateY(100%);
+opacity: 1;
+}
+.product-title{
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+.price{
+    font-weight: 500;
+}
+.catagory{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+</style>
+<body>
+
+
+
+    <main>  
+        <div class="shop-content">
+            {% for product in products %}
+            <div class="product-box"> 
+                <a href="{% url 'product_detail' product.id %}">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}"  class="product-img">
+                    <a href="{% url 'product_detail' product.id %}"  class="buy-button">Buy</a>
+                </a>                                      
+                
+                <a  href="{% url 'product_detail' product.id %}" class="product-title">{{ product.name }}</a>
+                <span class="price">${{ product.price }}</span>                              
+            </div>         
+            
+            {% endfor %}
+            {% for product in product_name %}
+            <div class="product-box"> 
+                <a href="{% url 'product_detail' product.id %}">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}"  class="product-img">
+                    <a href="{% url 'product_detail' product.id %}"  class="buy-button">Buy</a>
+                </a>                                      
+                
+                <a  href="{% url 'product_detail' product.id %}" class="product-title"  >{{ product.name }}</a>
+                <span class="price">${{ product.price }}</span>  
+                
+                             
+            </div>         
+            {% empty %}
+                <li>Ничего не найдено</li>
+            {% endfor %}
+        </div>
+
+        
+       
+
+
+
+        
+    </main>
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'order/style_cart.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a  class="logo" href="/">Lt.com</a>
+        <div class="nav container">
+            <a href="#">Iphone</a>
+            <a href="#">Mac</a>
+            <a href="#">IPad</a>
+            <a href="#">Air Pods</a>
+            <a href="#">Apple Watch</a>
+            <div class="navi">
+                <a  class="logsign" href="/register">Log in</a>
+                <a  class="logsign" href="/auth">Sign in</a>
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="title">
+        <h2 class="title">Сompletion of the purchase</h2>
+    </div>
+    <div class="mes">
+        <h1 class="message" >{{ message }}</h1>
+    </div>
+    
+    <div class="shop-content">
+        
+
+        <div class="info_order">
+            
+            <div class="info-box">
+                <p>Your order</p>  
+                {% if product_buckets %}              
+                    {% for product_bucket in product_buckets %}                                              
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}"  class="product-img">
+                        Name: {{ product_bucket.product.name }}  
+                        Price :{{ product_bucket.product.price}}
+                        Count: {{ product_bucket.count }}
+                        User : {{product_bucket.bucket.user}}
+                        
+                    {% endfor %} 
+                {% else %}
+                    <p>No items in the cart {{total_price}}</p>
+                {% endif %}
+
+            </div>
+
+
+            
+    
+           
+            <form method="post" action="{% url 'cart' %}">
+                <div class="end-order">
+                    {% csrf_token %}
+                    <div class="con-order">
+                        <p class="data-order">Your date for order</p>
+                        <label for="email" class="lable">Your email *</label>
+                        <input type="email" name="email" placeholder="Enter email">
+
+                        <label for="full_name" class="lable">Your name *</label>
+                        <input type="text" name="full_name" placeholder="Enter full name">
+
+                        <label for="phone_number" class="lable">Your phone number *</label>
+                        <input type="text" id="phone" name="phone_number" placeholder="Enter phone number">
+
+                    </div> 
+                <div class="all-order">                                          
+                    <h1>Together</h1>           
+                    <p class="total" >To pay <span>${{ total_price }}</span></p>
+                    <button class="btn-end" type="submit">End to order</button>                                                  
+                </div>    
+                
+                </div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                      $('#phone').inputmask('+380 (99) 999-99-99'); 
+                    });
+
+
+                </script>
+                                 
+        
+
+            </form>   
+        </div>        
+    </div>
+    
+</body>
+</html>

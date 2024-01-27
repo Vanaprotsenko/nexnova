@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <title>Document</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{% static 'product/style_catalog.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+        
+    </head>
+
+    
+
+    <body>
+        
+        <header>
+            <h1>Lt.com</h1>
+            <div class="nav containers">
+                <form method="GET" action="{% url 'product_search' %}"></form>
+                    <a name="query" href="product_search/?query=Iphone">Iphone</a>
+                    <a name="query" href="product_search/?query=mac">Mac</a>
+                    <a name="query" href="product_search/?query=ipad">IPad</a>
+                    <a name="query" href="product_search/?query=air pods">Air Pods</a>
+                    <a name="query" href="product_search/?query=apple watch">Apple Watch</a>
+                    <div class="cart-icon">
+                        <a  href="/cart" class='bx bx-cart-add bucket'></a>
+                        <span class="item-count" id="cart-count">{{count}}</span> 
+                    </div>
+                </form>  
+                    <div class="navi">
+                        <a  class="logsign" href="/register">Log in</a>
+                        <a  class="logsign" href="/auth">Sign in</a>
+                        <p>{{user}}</p>  
+                    </div>                               
+            </div>
+        </header>       
+        <main>
+            <div class="find_goods">
+                <form method="GET" action="{% url 'product_search' %}">
+                    <input type="text" name="query" placeholder="Search by name">
+                    <button type="submit">Find</button>
+                </form>               
+            </div>            
+            <section class="shop container">                            
+                <form action="/add_to_bucket/{{product.id}}/" method="POST">
+                    {% csrf_token %}
+                    <div class="shop-content">
+                        {% for product in products %}
+                            <div class="product-box"> 
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}"  class="product-img">
+                                    <a href="{% url 'product_detail' product.id %}"  class="buy-button">Buy</a>
+                                </a>  
+                                                                                           
+                                <a href="{% url 'product_detail' product.id %}" class="product-title"  >{{ product.name }}</a>
+                                <a href="/add_to_bucket/{{product.id}}" data-id="{{product.id}}" class="bx bx-plus icon addToCartLink"></a>
+                                
+                                <span class="price">${{ product.price }}</span>                                                                                         
+                            </div>                                       
+                        {% endfor %}                   
+                    </div> 
+                    
+                                        
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                    $(document).ready(function() {
+                        $('.addToCartLink').on('click', function(event) {
+                            event.preventDefault(); // Предотвратить переход по ссылке
+                            var productId = $(this).data('id');
+
+                            $.ajax({
+                                url: '/add_to_bucket/' + productId + '/',
+                                method: 'GET',  // Или 'POST', в зависимости от вашего API
+                                success: function(data) {
+                                    // Обработка успешного добавления в корзину
+                                    console.log('Товар добавлен в корзину');
+
+                                    // Обновление количества товаров на странице без перезагрузки
+                                    var newCount = parseInt($('#cart-count').text()) + 1;
+                                    $('#cart-count').text(newCount);
+                                },
+                                error: function(xhr, textStatus, error) {
+                                    // Обработка ошибок
+                                    console.error('Произошла ошибка при добавлении товара в корзину:', error);
+                                }
+                            });
+                        });
+                    });
+                    </script>
+
+                </form>                                               
+            </section>
+                  
+                            
+        </main>                                                      
+    </body>
+</html>
